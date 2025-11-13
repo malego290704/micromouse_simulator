@@ -1,0 +1,120 @@
+:root {
+  --viewing-area-padding: 32px;
+  --viewing-cell-size: 200px;
+  --robot-size-rel: 0.5;
+  --cell-wall-border: 16px solid black;
+}
+
+main {
+  max-width: 800px;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  padding: 32px;
+  gap: 32px;
+  align-items: stretch;
+}
+main section {
+  flex: 1 1 0px;
+}
+
+#control-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+#control-panel .minicard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background-color: lightgray;
+  border-radius: 16px;
+}
+
+#viewing-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 32px;
+}
+#viewing-area-box {
+  flex-grow: 1;
+}
+#viewing-area {
+  background-color: whitesmoke;
+  padding: var(--viewing-area-padding);
+  border-radius: var(--viewing-area-padding);
+  position: relative;
+}
+#viewing-cell {
+  background-color: white;
+  width: var(--viewing-cell-size);
+  height: var(--viewing-cell-size);
+}
+
+#viewing-cell.cell-start {
+  background-color: lightblue;
+}
+#viewing-cell.cell-end {
+  background-color: lightsalmon;
+}
+#viewing-cell.wall-front {
+  border-top: var(--cell-wall-border);
+}
+#viewing-cell.wall-left {
+  border-left: var(--cell-wall-border);
+}
+#viewing-cell.wall-right {
+  border-right: var(--cell-wall-border);
+}
+#viewing-cell.wall-back {
+  border-bottom: var(--cell-wall-border);
+}
+
+#robot {
+  position: absolute;
+  width: calc(var(--viewing-cell-size) * var(--robot-size-rel));
+  height: calc(var(--viewing-cell-size) * var(--robot-size-rel));
+  top: calc(var(--viewing-cell-size) / 2 + var(--viewing-area-padding));
+  left: calc(var(--viewing-cell-size) / 2 + var(--viewing-area-padding));
+  translate: -50% -50%;
+  background-color: black;
+  clip-path: polygon(10% 0%, 30% 0%, 35% 5%, 65% 5%, 70% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 70% 100%, 65% 95%, 35% 95%, 30% 100%, 10% 100%, 0% 90%, 0% 70%, 5% 65%, 5% 35%, 0% 30%, 0% 10%);
+  rotate: -90deg;
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.gradient-bg.inner {
+  --size: 750px;
+  --speed: 20s;
+  --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
+  width: var(--size);
+  height: var(--size);
+  filter: blur(calc(var(--size) / 5));
+  background-image: linear-gradient(#4377ef, #7befd0);
+  animation: rotate var(--speed) var(--easing) alternate infinite;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+.gradient-bg.outer {
+  background-color: #071c39;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  place-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.gradient-bg {
+  transition: all 0.5s ease-out;
+}

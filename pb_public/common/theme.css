@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  transition: 200ms;
+}
+
+html, body, h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Lexend Deca', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0px;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.centerchild {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+.invinsible {
+  visibility: hidden;
+}
+
+.clickable {
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+}

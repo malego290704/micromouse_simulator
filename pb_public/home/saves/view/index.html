@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saves</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="/common/theme.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.26.2/dist/pocketbase.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/duration.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <header>
+            <div id="nav-bar">
+                <a href="/home/saves">
+                    <span class="material-icons-round">arrow_back</span>
+                </a>
+                <div style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
+                    <h4><span id="username"></span></h4>
+                    <span class="material-icons-round">person</span>
+                </div>
+            </div>
+            <div class="centerchild" style="width: 100%;">
+                <h3><span id="maze-name" class="w3-tag w3-dark-gray"></span> <span id="save-name"></span></h3>
+            </div>
+        </header>
+        <article>
+            <div id="attempts-listbox">
+                <section class="saves-listitems">
+                    <h4>
+                        <span id="saves-listitem-maze" class="w3-tag w3-light-gray"></span> <span id="saves-listitem-name"></span>
+                    </h4>
+                    <p class="w3-tooltip">
+                        <span>Last updated </span>
+                        <span id="saves-listitem-updated"></span>
+                        <span class="w3-text w3-tag w3-small" id="saves-listitem-updated-tooltip"></span>
+                    </p>
+                    <p class="w3-tooltip">
+                        <span>Created</span>
+                        <span id="saves-listitem-created"></span>
+                        <span class="w3-text w3-tag w3-small" id="saves-listitem-created-tooltip"></span>
+                    </p>
+                </section>
+                <h1>Your Attempts</h1>
+                <div id="attempts-list"></div>
+                <template id="attempts-listitem-template">
+                    <section class="attempts-listitems">
+                        <h4><span id="attempts-listitem-name" class="w3-tag"></span></h4>
+                        <p class="w3-tooltip">
+                            <span>Started </span>
+                            <span id="attempts-listitem-started"></span>
+                            <span class="w3-text w3-tag w3-small" id="attempts-listitem-started-tooltip"></span>
+                        </p>
+                        <div id="attempts-listitem-endinfo" class="hidden">
+                            <p class="w3-tooltip">
+                                <span>Ended </span>
+                                <span id="attempts-listitem-ended"></span>
+                                <span class="w3-text w3-tag w3-small" id="attempts-listitem-ended-tooltip"></span>
+                            </p>
+                        </div>
+                        <div id="attempts-listitem-finishinfo" class="hidden">
+                            <h5 class="w3-tooltip">
+                                <span>Time taken: </span>
+                                <span id="attempts-listitem-time"></span>
+                                <span class="w3-text w3-tag w3-small" id="attempts-listitem-time-tooltip"></span>
+                            </h5>
+                        </div>
+                        <div class="attempts-listitems-buttonsbox">
+                            <div class="w3-button w3-amber w3-hover-yellow w3-small w3-ripple hidden" id="attempts-listitem-btn-end">End</div>
+                            <div class="w3-button w3-indigo w3-hover-blue w3-small w3-ripple" id="attempts-listitem-btn-token">Token</div>
+                            <div class="w3-button w3-red w3-hover-deep-orange w3-small w3-ripple" id="attempts-listitem-btn-delete">Delete</div>
+                        </div>
+                    </section>
+                </template>
+            </div>
+        </article>
+        <footer class="centerchild">
+            <div id="btn-new-attempt" class="w3-button w3-ripple w3-block w3-round-large w3-black w3-hover-light-gray" style="transition: 200ms; max-width: 400px;">
+                <h3>Start a new attempt</h3>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saves</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="/common/theme.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.26.2/dist/pocketbase.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <header>
+            <div id="nav-bar">
+                <a href="/home">
+                    <span class="material-icons-round">arrow_back</span>
+                </a>
+                <div style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
+                    <h4><span id="username"></span></h4>
+                    <span class="material-icons-round">person</span>
+                </div>
+            </div>
+            <div class="centerchild" style="width: 100%;">
+                <h1>Your saves</h1>
+            </div>
+        </header>
+        <article class="centerchild">
+            <div id="saves-list">
+                <section id="saves-list-empty-notice" class="w3-panel w3-pale-red w3-padding">
+                    <h4>No saves created</h4>
+                    <p>Create a save to start playing!</p>
+                </section>
+            </div>
+            <template id="saves-listitem-template">
+                <a class="w3-ripple clickable saves-listitems w3-hover-light-gray">
+                    <h6>
+                        <span id="saves-listitem-maze" class="w3-tag w3-dark-gray"></span>
+                    </h6>
+                    <h4>
+                        <span id="saves-listitem-name"></span>
+                    </h4>
+                    <p class="w3-tooltip">
+                        <span>Last updated </span>
+                        <span id="saves-listitem-updated"></span>
+                        <span class="w3-text w3-tag w3-small" id="saves-listitem-updated-tooltip"></span>
+                    </p>
+                    <p class="w3-tooltip">
+                        <span>Created</span>
+                        <span id="saves-listitem-created"></span>
+                        <span class="w3-text w3-tag w3-small" id="saves-listitem-created-tooltip"></span>
+                    </p>
+                    <div class="saves-listitems-buttonsbox">
+                        <div class="w3-button w3-indigo w3-hover-blue w3-small w3-ripple" id="saves-listitem-btn-token">Token</div>
+                        <div class="w3-button w3-red w3-hover-deep-orange w3-small w3-ripple" id="saves-listitem-btn-delete">Delete</div>
+                    </div>
+                </a>
+            </template>
+        </article>
+        <footer class="centerchild">
+            <a href="new" class="w3-button w3-ripple w3-block w3-round-large w3-black w3-hover-light-gray" style="transition: 200ms; max-width: 400px;">
+                <h3>Create a new save</h3>
+            </a>
+        </footer>
+    </main>
+</body>
+</html>

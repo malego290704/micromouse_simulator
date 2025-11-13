@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Admins</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/common/theme.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.26.2/dist/pocketbase.umd.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body class="centerchild">
+    <div class="gradient-bg outer">
+        <div class="gradient-bg inner"></div>
+    </div>
+    <main class="w3-card w3-round-xxlarge w3-white">
+        <section>
+            <h1>Login</h1>
+        </section>
+        <form id="form">
+            <label for="email">Email</label>
+            <input required type="email" class="w3-input w3-border w3-round-large w3-hover-light-gray" id="email">
+            <label for="password">Password</label>
+            <input required type="password" class="w3-input w3-border w3-round-large w3-hover-light-gray" id="password">
+            <div></div>
+            <input type="submit" class="w3-button w3-ripple w3-block w3-round-large w3-black w3-hover-light-gray" value="Log in" style="transition: 200ms;">
+        </form>
+        <a href="/home/register" class="w3-button w3-ripple w3-block w3-round-large w3-hover-light-gray w3-hover-border-white" style="transition: 200ms; border: 2px black solid;">Register</a>
+    </main>
+</body>
+</html>

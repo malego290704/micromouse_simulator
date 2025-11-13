@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot View</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="/common/theme.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.26.2/dist/pocketbase.umd.js"></script>
+    <script src="https://unpkg.com/@panzoom/panzoom@4.6.0/dist/panzoom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js"></script>
+    <script>dayjs.extend(window.dayjs_plugin_utc)</script>
+    <script>dayjs.extend(window.dayjs_plugin_relativeTime)</script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <section id="display">
+            <div id="mapbox">
+                <div id="map">
+                    <div id="robot">
+                        <div id="robot-body"></div>
+                    </div>
+                </div>
+            </div>
+            <template id="map-row-template">
+                <div class="map-row"></div>
+            </template>
+            <template id="map-cell-template">
+                <div class="map-cell centerchild"></div>
+            </template>
+            <template id="map-cell-innerstart-template">
+                <div class="map-cell-innerstart" id="map-cell-innerstart"></div>
+            </template>
+            <template id="map-cell-innerend-template">
+                <div class="map-cell-innerend"></div>
+            </template>
+        </section>
+        <section id="control">
+            <div id="control-panel">
+                <a href="/home" style="text-decoration: none;">
+                    <h5 style="display: flex; flex-direction: row; gap: 8px; align-items: center;"><span class="material-icons-round">arrow_back</span><span>Back to home</span></h5>
+                </a>
+                <hgroup>
+                    <h1>Simulation Viewer</h1>
+                    <h4>Hello, <span id="control-username"></span></h4>
+                </hgroup>
+                <div id="control-saves-list">
+                    <div id="control-saves-listitem-default" class="control-saves-listitems w3-card w3-ripple clickable selected">
+                        <p>Default map</p>
+                    </div>
+                </div>
+                <template id="control-saves-listitem-template">
+                    <div class="control-saves-listitems w3-card w3-ripple clickable">
+                        <h4 id="control-saves-listitem-name"></h4>
+                        <p class="w3-tooltip">Last updated <span id="control-saves-listitem-updated"></span><span class="w3-text w3-tag control-saves-listitem-tooltip w3-animate-opacity w3-small" id="control-saves-listitem-updated-tooltip"></span></p>
+                        <p class="w3-tooltip">Created <span id="control-saves-listitem-created"></span><span class="w3-text w3-tag control-saves-listitem-tooltip w3-animate-opacity w3-small" id="control-saves-listitem-created-tooltip"></span></p>
+                    </div>
+                </template>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

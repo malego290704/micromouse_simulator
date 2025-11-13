@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Control GUI</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/common/theme.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.26.2/dist/pocketbase.umd.js"></script> -->
+    <script src="script.js" defer></script>
+</head>
+<body class="centerchild">
+    <div class="gradient-bg outer">
+        <div class="gradient-bg inner"></div>
+    </div>
+    <main class="w3-card w3-round-xxlarge w3-white">
+        <section id="control-panel">
+            <hgroup style="display: none;">
+                <h1>Robot Control</h1>
+                <h3>Manual control client</h3>
+            </hgroup>
+            <div class="minicard">
+                <label for="inp-savetoken">Token of your save</label>
+                <input type="password" class="w3-input w3-border w3-round-large w3-hover-light-gray" name="savetoken" id="inp-savetoken">
+                <div class="w3-button w3-ripple w3-block w3-round-large w3-black w3-hover-light-gray clickable"  style="transition: 200ms;" id="btn-new-attempt">Start a new attempt</div>
+            </div>
+            <div class="minicard">
+                <label for="inp-attempttoken">Token of your attempt</label>
+                <input type="password" class="w3-input w3-border w3-round-large w3-hover-light-gray" name="attempttoken" id="inp-attempttoken">
+                <div class="w3-button w3-ripple w3-block w3-round-large w3-black w3-hover-light-gray clickable"  style="transition: 200ms;" id="btn-verify-attempt">Verify attempt token</div>
+            </div>
+            <div class="minicard">
+                <div class="w3-button w3-ripple w3-block w3-round-large w3-black w3-hover-light-gray clickable"  style="transition: 200ms; display: none;" id="btn-control-view">Update walls</div>
+                <div class="w3-button w3-ripple w3-block w3-round-large w3-black w3-hover-light-gray clickable"  style="transition: 200ms;" id="btn-control-forward">Move forward</div>
+                <div style="display: flex; flex-direction: row; gap: 8px;">
+                    <div class="w3-button w3-ripple w3-block w3-round-large w3-black w3-hover-light-gray clickable" style="transition: 200ms; flex-grow: 1;" id="btn-control-left">Turn left</div>
+                    <div class="w3-button w3-ripple w3-block w3-round-large w3-black w3-hover-light-gray clickable" style="transition: 200ms; flex-grow: 1;" id="btn-control-right">Turn right</div>
+                </div>
+                <div class="w3-button w3-ripple w3-block w3-round-large w3-black w3-hover-light-gray clickable"  style="transition: 200ms;" id="btn-control-end">Finish attempt</div>
+            </div>
+        </section>
+        <div class="w3-gray w3-round" style="width: 8px;"></div>
+        <section id="viewing-panel">
+            <h2>Robot top-down view</h2>
+            <div id="viewing-area-box" class="centerchild">
+                <div id="viewing-area">
+                    <div id="viewing-cell">
+                    </div>
+                    <div id="robot"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
