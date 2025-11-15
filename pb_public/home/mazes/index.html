@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mazes</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="/common/theme.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.26.2/dist/pocketbase.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <header>
+            <div id="nav-bar">
+                <a href="/home">
+                    <span class="material-icons-round">arrow_back</span>
+                </a>
+                <div style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
+                    <h4><span id="username"></span></h4>
+                    <span class="material-icons-round">person</span>
+                </div>
+            </div>
+            <div class="centerchild" style="width: 100%;">
+                <h1>Available mazes</h1>
+            </div>
+        </header>
+        <article class="centerchild">
+            <div id="mazes-list">
+            </div>
+            <template id="mazes-listitem-template">
+                <section class="w3-ripple clickable mazes-listitems w3-hover-light-gray">
+                    <h3>
+                        <span id="mazes-listitem-name"></span>
+                    </h3>
+                </section>
+                <div class="mazes-listitems-modal w3-modal">
+                    <div class="w3-modal-content w3-card-4">
+                        <div class="w3-container w3-padding-large w3-light-gray">
+                            <span class="mazes-listitems-modal-button w3-button w3-display-topright">&times;</span>
+                            <h2>
+                                <span id="mazes-listitem-modal-name"></span>
+                            </h2>
+                        </div>
+                        <div class="w3-container w3-padding-large">
+                            <p>
+                                <span id="mazes-listitem-modal-description"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </article>
+        <footer class="centerchild">
+            <h4>To preview a maze, go to <a class="w3-tag w3-hover-dark-gray clickable w3-ripple" href="/home/robotview">Robot View</a> and put in the maze token</h4>
+        </footer>
+    </main>
+</body>
+</html>
