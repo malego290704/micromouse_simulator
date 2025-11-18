@@ -32,9 +32,12 @@ window.addEventListener('load', async (e) => {
     cloneListitem.getElementById('saves-listitem-created').innerText = dayjs(save.created).fromNow()
     cloneListitem.getElementById('saves-listitem-created-tooltip').innerText = dayjs.utc(save.created).local().format('ddd, MMM D YYYY [at] HH:mm:ssZ')
     cloneListitem.getElementById('saves-listitem-btn-token').addEventListener('click', async (e) => {
+      e.preventDefault()
+      e.stopPropagation()
       await navigator.clipboard.writeText(save.token)
     })
     cloneListitem.getElementById('saves-listitem-btn-delete').addEventListener('click', async (e) => {
+      e.stopPropagation()
       if (!confirm('Do you want to delete this save?')) {
         e.preventDefault()
         return

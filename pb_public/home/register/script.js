@@ -16,6 +16,7 @@ form.addEventListener('submit', async (e) => {
     }
     const record = await pb.collection('users').create(userdata)
     const authData = await pb.collection('users').authWithPassword(email, password)
+    alert('Successfully registered! Remember to verify your account!')
     location.href = '/home'
   } catch (error) {
     alert(JSON.stringify(error.response.data, null, 4))

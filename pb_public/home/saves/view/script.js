@@ -52,9 +52,12 @@ window.addEventListener('load', async (e) => {
     cloneListitem.getElementById('attempts-listitem-started').innerText = startTime.fromNow()
     cloneListitem.getElementById('attempts-listitem-started-tooltip').innerText = startTime.local().format('ddd, MMM D YYYY [at] HH:mm:ssZ')
     cloneListitem.getElementById('attempts-listitem-btn-token').addEventListener('click', async (e) => {
+      e.preventDefault()
+      e.stopPropagation()
       await navigator.clipboard.writeText(attempt.token)
     })
     cloneListitem.getElementById('attempts-listitem-btn-delete').addEventListener('click', async (e) => {
+      e.stopPropagation()
       if (!confirm('Do you want to delete this attempt?')) {
         e.preventDefault()
         return
@@ -66,6 +69,7 @@ window.addEventListener('load', async (e) => {
       cloneListitem.getElementById('attempts-listitem-name').innerText = 'Active attempt'
       cloneListitem.getElementById('attempts-listitem-name').classList.add('w3-pale-blue')
       cloneListitem.getElementById('attempts-listitem-btn-end').addEventListener('click', async (e) => {
+        e.stopPropagation()
         if (!confirm('Do you want to end this attempt?')) {
           e.preventDefault()
           return
@@ -96,7 +100,6 @@ window.addEventListener('load', async (e) => {
         cloneListitem.getElementById('attempts-listitem-name').classList.add('w3-pale-yellow')
       }
     }
-    // elementListitem.href = `view/?saveid=${save.id}`
     domAttemptsList.appendChild(elementListitem)
   }
   document.getElementById('btn-new-attempt').addEventListener('click', async (e) => {
@@ -104,6 +107,7 @@ window.addEventListener('load', async (e) => {
       const req = await fetch(`/runapi/saves/${save.token}/newattempt`)
       if (req.status != 200) {
         alert('Invalid request')
+        e.preventDefault()
         return
       }
       const res = await req.json()

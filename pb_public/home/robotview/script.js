@@ -96,7 +96,7 @@ window.addEventListener('load', async (e) => {
     // cloneListitem.getElementById('control-saves-listitem-updated').innerText = save.updated
     cloneListitem.getElementById('control-saves-listitem-updated').innerText = dayjs(save.updated).fromNow()
     cloneListitem.getElementById('control-saves-listitem-updated-tooltip').innerText = dayjs.utc(save.updated).local().format('ddd, MMM D YYYY [at] HH:mm:ssZ')
-    console.log(save)
+    // console.log(save)
     const elementListitem = cloneListitem.querySelector('.control-saves-listitems')
     elementListitem.addEventListener('click', (e) => {
       for (const item of domSavesList.children) {
