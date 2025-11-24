@@ -20,6 +20,26 @@ const buttonSavesItemlistDefault = document.getElementById('control-saves-listit
 
 const panzoom = Panzoom(domMapbox, {})
 domMap.parentElement.addEventListener('wheel', panzoom.zoomWithWheel)
+zoomLock = false
+document.getElementById('control-button-zoom-out').addEventListener('click', panzoom.zoomOut)
+document.getElementById('control-button-zoom-in').addEventListener('click', panzoom.zoomIn)
+document.getElementById('control-button-reset').addEventListener('click', (e) => {panzoom.reset({ force: false })})
+const buttonControlLock = document.getElementById('control-button-lock')
+buttonControlLock.addEventListener('click', (e) => {
+  zoomLock = !zoomLock
+  if (zoomLock) {
+    buttonControlLock.classList.remove('w3-hover-light-gray')
+    buttonControlLock.classList.add('w3-black', 'w3-hover-dark-gray')
+    buttonControlLock.firstElementChild.firstElementChild.innerText = 'lock_outline'
+    buttonControlLock.firstElementChild.lastElementChild.innerText = 'Unlock'
+  } else {
+    buttonControlLock.classList.remove('w3-black', 'w3-hover-dark-gray')
+    buttonControlLock.classList.add('w3-hover-light-gray')
+    buttonControlLock.firstElementChild.firstElementChild.innerText = 'lock_open'
+    buttonControlLock.firstElementChild.lastElementChild.innerText = 'Lock'
+  }
+    panzoom.setOptions({disablePan: zoomLock, disableZoom: zoomLock})
+})
 
 const mapGrid = []
 

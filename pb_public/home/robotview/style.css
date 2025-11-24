@@ -1,6 +1,6 @@
 :root {
-  --maze-cell-edge: 120px;
-  --maze-cell-border: 8px solid black;
+  --maze-cell-edge: 60px;
+  --maze-cell-border: 4px solid black;
   --robot-size-rel: 0.6;
   --robot-pose-x: 0;
   --robot-pose-y: 0;
@@ -12,6 +12,7 @@ main {
   height: 100%;
   display: flex;
   flex-direction: row;
+  overflow: hidden;
 }
 
 #display {
@@ -29,22 +30,22 @@ main {
 }
 
 #mapbox {
-  max-width: fit-content;
-  padding: 32px;
-  border-radius: 32px;
+  width: fit-content;
+  padding: 16px;
+  border-radius: 16px;
   background-color: lightgray;
 }
 #map {
   display: flex;
   flex-direction: column;
-  max-width: fit-content;
+  width: fit-content;
   border: var(--maze-cell-border);
   position: relative;
 }
 .map-row {
   display: flex;
   flex-direction: row;
-  max-width: fit-content;
+  width: fit-content;
 }
 .map-cell {
   width: var(--maze-cell-edge);
@@ -119,6 +120,16 @@ main {
   flex-direction: column;
   gap: 32px;
 }
+
+.control-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.control-button {
+  border: 2px solid black;
+}
+
 #control-saves-list {
   display: flex;
   flex-direction: column;
