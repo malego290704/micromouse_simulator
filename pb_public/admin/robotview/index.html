@@ -45,11 +45,11 @@
         </section>
         <section id="control">
             <div id="control-panel">
-                <a href="/home" style="text-decoration: none;">
-                    <h5 style="display: flex; flex-direction: row; gap: 8px; align-items: center;"><span class="material-icons-round">arrow_back</span><span>Back to home</span></h5>
+                <a href="/admin" style="text-decoration: none;">
+                    <h5 style="display: flex; flex-direction: row; gap: 8px; align-items: center;"><span class="material-icons-round">arrow_back</span><span>Back to admin home</span></h5>
                 </a>
                 <hgroup>
-                    <h1>Simulation Viewer</h1>
+                    <h1>Admin Viewer</h1>
                     <h4>Hello, <span id="control-username"></span></h4>
                 </hgroup>
                 <div class="control-buttons">
@@ -73,7 +73,8 @@
                 </div>
                 <template id="control-saves-listitem-template">
                     <div class="control-saves-listitems w3-card w3-ripple clickable">
-                        <h4 id="control-saves-listitem-name"></h4>
+                        <h6 class="w3-tag w3-dark-gray"><span id="control-saves-listitem-username"></span></h6>
+                        <h4><span id="control-saves-listitem-name"></span></h4>
                         <p class="w3-tooltip">Last updated <span id="control-saves-listitem-updated"></span><span class="w3-text w3-tag control-saves-listitem-tooltip w3-animate-opacity w3-small" id="control-saves-listitem-updated-tooltip"></span></p>
                         <p class="w3-tooltip">Created <span id="control-saves-listitem-created"></span><span class="w3-text w3-tag control-saves-listitem-tooltip w3-animate-opacity w3-small" id="control-saves-listitem-created-tooltip"></span></p>
                     </div>

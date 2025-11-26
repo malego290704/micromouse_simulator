@@ -1,5 +1,5 @@
 const pb = new PocketBase()
-if (!pb.authStore.isValid || pb.authStore.record.collectionName != 'users') {
+if (!pb.authStore.isValid || pb.authStore.record.collectionName != 'admins') {
   location.href = '/home/login'
 }
 document.getElementById('control-username').innerText = pb.authStore.record.name
@@ -111,18 +111,18 @@ window.addEventListener('load', async (e) => {
   mapGrid[mapEndPose[1]][mapEndPose[0]].classList.add('cell-end')
   mapGrid[mapEndPose[1]][mapEndPose[0]].appendChild(domMapCellInnerend)
   robotMove(...mapStartPose)
-  const saves = await pb.collection('saves').getFullList({sort: '-updated', filter: `maze.mazeid = '${mazeid}'`})
+  const saves = await pb.collection('saves').getFullList({sort: '-updated', filter: `maze.mazeid = '${mazeid}'`, expand: 'player'})
   for (const save of saves) {
-    // console.log(save)
+    console.log(save)
     const cloneListitem = templateControlSavesListitem.content.cloneNode(true)
     cloneListitem.getElementById('control-saves-listitem-name').innerText = save.name
+    cloneListitem.getElementById('control-saves-listitem-username').innerText = save.expand.player.name
     // cloneListitem.getElementById('control-saves-listitem-created').innerText = save.created
     cloneListitem.getElementById('control-saves-listitem-created').innerText = dayjs(save.created).fromNow()
     cloneListitem.getElementById('control-saves-listitem-created-tooltip').innerText = dayjs.utc(save.created).local().format('ddd, MMM D YYYY [at] HH:mm:ssZ')
     // cloneListitem.getElementById('control-saves-listitem-updated').innerText = save.updated
     cloneListitem.getElementById('control-saves-listitem-updated').innerText = dayjs(save.updated).fromNow()
     cloneListitem.getElementById('control-saves-listitem-updated-tooltip').innerText = dayjs.utc(save.updated).local().format('ddd, MMM D YYYY [at] HH:mm:ssZ')
-    // console.log(save)
     const elementListitem = cloneListitem.querySelector('.control-saves-listitems')
     elementListitem.addEventListener('click', (e) => {
       for (const item of domSavesList.children) {
