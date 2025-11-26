@@ -129,6 +129,10 @@ main {
 .control-button {
   border: 2px solid black;
 }
+.control-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
 #control-saves-list {
   display: flex;

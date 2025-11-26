@@ -32,13 +32,19 @@ buttonControlLock.addEventListener('click', (e) => {
     buttonControlLock.classList.add('w3-black', 'w3-hover-dark-gray')
     buttonControlLock.firstElementChild.firstElementChild.innerText = 'lock_outline'
     buttonControlLock.firstElementChild.lastElementChild.innerText = 'Unlock'
+    document.getElementById('control-button-zoom-out').classList.add('disabled')
+    document.getElementById('control-button-zoom-in').classList.add('disabled')
+    document.getElementById('control-button-reset').classList.add('disabled')
   } else {
     buttonControlLock.classList.remove('w3-black', 'w3-hover-dark-gray')
     buttonControlLock.classList.add('w3-hover-light-gray')
     buttonControlLock.firstElementChild.firstElementChild.innerText = 'lock_open'
     buttonControlLock.firstElementChild.lastElementChild.innerText = 'Lock'
+    document.getElementById('control-button-zoom-out').classList.remove('disabled')
+    document.getElementById('control-button-zoom-in').classList.remove('disabled')
+    document.getElementById('control-button-reset').classList.remove('disabled')
   }
-    panzoom.setOptions({disablePan: zoomLock, disableZoom: zoomLock})
+  panzoom.setOptions({disablePan: zoomLock, disableZoom: zoomLock})
 })
 
 const mapGrid = []
