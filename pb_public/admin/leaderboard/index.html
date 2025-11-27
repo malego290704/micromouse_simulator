@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="/common/theme.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/pocketbase@0.26.2/dist/pocketbase.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/duration.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <header>
+            <div id="nav-bar">
+                <a href="/admin">
+                    <span class="material-icons-round">arrow_back</span>
+                </a>
+                <div style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
+                    <h4>Admin - <span id="username"></span></h4>
+                    <span class="material-icons-round">person</span>
+                </div>
+            </div>
+            <div class="centerchild" style="width: 100%;">
+                <h3>Leaderboard for <span id="maze-name" class="w3-tag w3-dark-gray"></span></h3>
+            </div>
+        </header>
+        <article>
+            <div id="attempts-listbox">
+                <div id="attempts-list"></div>
+                <template id="attempts-listitem-template">
+                    <section class="w3-card w3-padding-large attempts-listitems">
+                        <h3 id="attempts-listitem-player-name"></h3>
+                        <div></div>
+                        <h3 class="w3-tooltip" style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
+                            <span id="attempts-listitem-time"></span>
+                            <span class="w3-text w3-tag w3-small" id="attempts-listitem-time-tooltip"></span>
+                        </h3>
+                    </section>
+                </template>
+            </div>
+        </article>
+        <footer class="centerchild">
+        </footer>
+    </main>
+</body>
+</html>
